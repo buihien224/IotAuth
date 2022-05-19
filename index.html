@@ -1,73 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>IoTLab Auth</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIUI VietSub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
+    
+</head>
 <body>
-    <!-- Start your project here-->
-    
-  <section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
-
-            <div class="mb-md-5 mt-md-4 pb-5">
-
-              <h2 class="fw-bold mb-2 text-uppercase">IoT Auth</h2>
-              <p class="text-white-50 mb-5">Please enter your email and password!</p>
-
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="inputEmail" class="form-control form-control-lg" />
-                <label class="form-label" for="inputEmail">Email</label>
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <input type="password" id="inputPassword" class="form-control form-control-lg" />
-                <label class="form-label" for="inputPassword">Password</label>
-              </div>
-              <button class="btn btn-outline-light btn-lg px-5" type="submit" id="signin" >Login</button>
+    <div id="main">
+        <!--Begin header-->
+        <div id="header">
+            <!-- Begin Nav-->
+            <ul id="nav">
+                <li class="logo"><a href="">Miui Vietsub</a></li>
+                <li class = "li1"><a href="#">Home</a></li>
+                <li class = "li1"><a href="#intro">Introduction</a></li>
+                <li class = "li1"><a href="#services">Services</a></li>
+                <li class = "li1"><a href="#review">Review</a></li>
+                <li class = "li1"><a href="#about">About</a></li> 
+            </ul>
+            <!--End nav-->
+            <!--Begin: icon-btn-->
+            <div class="shopping-btn">
+                <i class="shopping-icon ti-shopping-cart-full">
+                </i>
             </div>
-
-            <div>
-              <p class="mb-0"id="user">Welcome user : </p>
+            <i class="js-login user-btn">
+                <i class="user-icon ti-user">
+                </i>
+            </i>
+            <div class="search-btn">
+                <i class="search-icon ti-search">
+                </i>   
             </div>
-
-          </div>
-        </div>
-      </div>
+       <!--End: icon-btn-->
     </div>
-  </div>
-</section>
-    
-    <!-- End your project here-->
-</body>
-    <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript"></script>
-    <!--Firebase SDK code below-->
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+        <!--End header-->
+        <!--Begin Intro-->
+        <div id="intro">
+            <div class="content">
+                <div class = text>
+                    <h3 class="intro-header">MIUI VietSub</h3>
+                    <div class="socials-list">
+                        <a href="https://www.facebook.com/vietsubBHLNK"><i class="ti-facebook"></i></a>
+                        <a href=""><i class="ti-instagram"></i></a>
+                        <a href=""><i class="ti-github"></i></a>
+                        <a href=""><i class="ti-pinterest"></i></a>
+                        <a href=""><i class="ti-twitter"></i></a>
+                        <a href=""><i class="ti-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="image">
+                    <img src="./assets/img/intro.jpg" alt="">
+                </div>
+            </div>  
+            <div class="clear"></div>
+            
+            
+        </div>
+        <!--End intro-->
+        <!--Begin Content-->
+         <div id="content">
+             <!--Begin Services-->
+            <div id = "services" class="service-section">
+                <div class="content-section">
+                    <h2 class="section-heading text-white">Our Services</h2>
+                    <div class="row services-list">
+                        <div class="col  services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-cloud"></i>
+                                <h3 id ="na2" class="services-heading"></h3>
+                                <p id="des2" class="services-dsc"></p>
+                                <a id="pri2" href="" class="btn"></a>
+                            </div>
+                        </div>
+                        <div class="col services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-download"></i>
+                                <h3 id = "na1" class="services-heading"></h3>
+                                <p id = "des1"class="services-dsc"></p>
+                                <a id="pri1" href="" class="btn"></a>
+                            </div>
+                        </div>
+                        <div class="col services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-arrows-horizontal"></i>
+                                <h3 id = "na3" class="services-heading"></h3>
+                                <p id="des3" class="services-dsc"></p>
+                                <a id = "pri3" href="" class="btn"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row services-list">
+                        <div class="col services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-android"></i>
+                                <h3 id="na4" class="services-heading"></h3>
+                                <p id="des4" class="services-dsc"></p>
+                                <a id="pri4" href="" class="btn"></a>
+                            </div>
+                        </div>
+                        <div class="col  services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-settings"></i>
+                                <h3 id = "na5" class="services-heading"></h3>
+                                <p id="des5" class="services-dsc"></p>
+                                <a id="pri5" href="" class="btn"></a>
+                            </div>
+                        </div>
+                        <div class="col services-items">
+                            <div class="services-body">
+                                <i class="services-icon ti-lock"></i>
+                                <h3 id = "na6" class="services-heading"></h3>
+                                <p id="des6" class="services-dsc"></p>
+                                <a id="pri6"  href="" class="btn"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--End Services-->
+            <!--Begin Review-->
+            <div id = "review" class="content-section">
+                <h2 class="section-heading">Review</h2>
+                <iframe  width="100%" height="400" src="https://www.youtube.com/embed/vU2Q_nSOYLQ" title="ROM K40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!--Begin About-->
+            <div id = "about"class="content-section">
+                <h2 class="section-heading">About us</h2>
+                <div class="row member-list text-center">
+                    <div class="col member-item">
+                        <img src="./assets/img/member1.jpg" alt="member1" class="member-img">
+                        <h3 class="member-name">Minh Quân</h3>
+                        <p>Web Develper</p>
+                        <div class="socials-list">
+                            <a href=""><i class="ti-facebook"></i></a>
+                            <a href=""><i class="ti-instagram"></i></a>
+                            <a href=""><i class="ti-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="col member-item text-center">
+                        <img src="./assets/img/member2.jpg" alt="member1" class="member-img">
+                        <h3 class="member-name">BHLNK</h3>
+                        <p>Android Develper</p>
+                        <div class="socials-list">
+                            <a href=""><i class="ti-facebook"></i></a>
+                            <a href=""><i class="ti-instagram"></i></a>
+                            <a href=""><i class="ti-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="col member-item text-center">
+                        <img src="./assets/img/member3.jpg" alt="member1" class="member-img">
+                        <h3 class="member-name">Mai Link</h3>
+                        <p>Designer</p>
+                        <div class="socials-list">
+                            <a href=""><i class="ti-facebook"></i></a>
+                            <a href=""><i class="ti-instagram"></i></a>
+                            <a href=""><i class="ti-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div> 
+            <!--End About-->
+            
+        </div> 
+         <!--End Content-->  
+        <!--Begin Footer-->
+         <footer>
+            <div id="footer-content" >
+                <div class="row footer-content2">
+                    <div class="col footer-download">
+                        <h3 class="download-header">Download Our App</h3>
+                        <p class="download-content">Download App for Android and Ios Iphone</p>
+                        <div class="row box-download">
+                            <div class="col2 android-download">
+                                <p><i class="ti-android"></i>Google Play</p>
+                            </div>
+                            <div class="col2 apple-download">
+                                <p><i class="ti-apple"></i>IOS</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col footer-purpose">
+                        <div class="logo"><p>Miui VietSub</p></div>
+                        <p class="purpose-content">Our Purpose is to sustainably make the pleasure and benefit of ROM to the many</p>  
+                    </div>
+                    <div class="col footer-address">
+                        <h3 class="address-header">Address</h3>
+                        <p class="address-content">
+                            <ul class="address-content1">
+                                <li>Địa chỉ: 1 Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh.</li>
+                                <li>Điện thoại: (+84 - 028) 38968641 - (+84 -028) 38961333 - (+84 -028) 37221223</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--End Footer-->
+    </div>
+    <!--Login-->
+    <div class="js-modal modal">
+        <div class=" js-modal-container modal-container">
+             <div class="js-modal-close modal-close">
+                 <i class="ti-close"></i>
+             </div>
+            <header class="modal-header">
+                <i class="modal-bag ti-bag"></i>
+                Login
+            </header>
+            <div class="modal-body">
+                <label  for="ticket-quantity" class="modal-label">
+                    <i class="ti-user"></i>
+                    User name
+                </label>
+                <input id = "ticket-quantity" type="text" class="modal-input" placeholder="User name">
+                <label for="email" class="modal-label">
+                 Password
+             </label>
+             <input id="email" type="password" class="modal-input" placeholder="Password">
+             <button id="login" class="modal-buy">
+                 Login
+                 <i class="ti-check"></i>
+             </button>
+            </div>
+            <footer class="modal-footer">
+                <p class="modal-help">Need <a href="">help?</a></p>
+            </footer>
+        </div>
+    </div>
+    <!--End Login-->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
-    <!--My js-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
     <script src="js/login.js"></script>
+    
+    
+    
+<script>
+       const login = document.querySelector('.js-login')
+       const modal = document.querySelector('.js-modal')
+       const modalContainer = document.querySelector('js-modal-container')
+       const modalClose = document.querySelector('.js-modal-close')
+        function showBuyTickets(){
+            modal.classList.add('open')
+        }
+        function removeBuyticket(){
+            modal.classList.remove('open')
+        }
+       login.addEventListener('click',showBuyTickets)
+       modalClose.addEventListener('click',removeBuyticket)
+       modal.addEventListener('click',removeBuyticket)
+       modalContainer.addEventListener('click',function(event){
+           event.stopPropagation()
+       })
+</script>
+</body>
 </html>
