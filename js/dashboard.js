@@ -308,23 +308,26 @@ document.getElementById("check").addEventListener("click", (e) => {
 
 
 // esp32 button
+
+function led(state) {
+    firebase.database().ref('button').set({
+        led: state
+    });
+}
+
 let esp32Button = document.getElementById("esp32")
 esp32Button.addEventListener("click", (e) => {
+    
     //Prevent Default Form Submission Behavior
     e.preventDefault()
-    firebase.database().ref().child("button").child("led").on('value', function(snap) {
-        if (snap.val()) {
-            firebase.database().ref('button').set({
-                led: 0
-            });
-            console.log("Led on")
-        } else {
-            firebase.database().ref('button').set({
-                led: 1
-            });
-            console.log("Led off")
-        }
+    if (document.getElementById("led2").innerHTML == 1) {
+        led(0);
+    } else {
+        led(1);
+    }
+            
     });
 
-})
-
+firebase.database().ref().child("button").child("led").on('value', function(snap) {
+    document.getElementById("led2").innerHTML = snap.val();
+    });
