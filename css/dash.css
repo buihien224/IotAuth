@@ -1,0 +1,16 @@
+body {
+  margin: 10% 20% 0% 20%;
+}
+
+table {
+  text-align: left;
+}
+
+button {
+  margin-bottom: 2%;
+}
+
+
+.tabcontent {
+  display: none;
+}

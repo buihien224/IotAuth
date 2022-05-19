@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>IoTLab Auth</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+<body>
+    <!-- Start your project here-->
+    
+  <section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase">IoT Auth</h2>
+              <p class="text-white-50 mb-5">Please enter your email and password!</p>
+
+              <div class="form-outline form-white mb-4">
+                <input type="email" id="inputEmail" class="form-control form-control-lg" />
+                <label class="form-label" for="inputEmail">Email</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="inputPassword" class="form-control form-control-lg" />
+                <label class="form-label" for="inputPassword">Password</label>
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" id="signin" >Login</button>
+            </div>
+
+            <div>
+              <p class="mb-0"id="user">Welcome user : </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+    <!-- End your project here-->
+</body>
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+    <!--Firebase SDK code below-->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <!--My js-->
+    <script src="js/login.js"></script>
+</html>
