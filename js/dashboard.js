@@ -311,7 +311,8 @@ document.getElementById("check").addEventListener("click", (e) => {
 
 function led(state) {
     firebase.database().ref('button').set({
-        led: state
+        led: state,
+        switch: 0
     });
 }
 
