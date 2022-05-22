@@ -2,12 +2,6 @@
 #include <MFRC522.h>
 #include <FirebaseESP32.h>
 
-// Setup FreeRTOS
-#if CONFIG_FREERTOS_UNICORE
-#define ARDUINO_RUNNING_CORE 0
-#else
-#define ARDUINO_RUNNING_CORE 1
-#endif
 
 //Set up temprature sensor
 #ifdef __cplusplus
@@ -36,19 +30,17 @@ MFRC522::MIFARE_Key key;
 String card ;
 
 
+
 //Setup Hall sensor
 const int touchPin = 4;
 const int ledPin = 16;
 const int ledPinFire = 17;
 const int threshold = 20;
 int touchValue;
-
+int button;
 //Run Firebase
 FirebaseData fbdt;
 FirebaseJson json;
-
-//Call Sensor task
-void sensor( void *pvParameters );
 
 void setup() {
   Serial.begin(115200);
@@ -66,56 +58,45 @@ void setup() {
   while (!Serial);
   SPI.begin();
   pinMode (ledPin, OUTPUT);
+  pinMode(ledPinFire, OUTPUT);
 
   // Conect to Firebase
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   //Setup Sensor Task
   mfrc522.PCD_Init();
-  xTaskCreatePinnedToCore(
-    sensor
-    ,  "sensor"
-    ,  16384  // Stack size
-    ,  NULL
-    ,  1  // Priority
-    ,  NULL
-    ,  ARDUINO_RUNNING_CORE);
-}
 
-void loop()
-{
-  if ( ! mfrc522.PICC_IsNewCardPresent())
-    return;
-  if ( ! mfrc522.PICC_ReadCardSerial())
-    return;
-  String content = "";
-  for (byte i = 0; i < mfrc522.uid.size; i++)
-  {
-    content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
-    content.concat(String(mfrc522.uid.uidByte[i], HEX));
-  }
-  content.toUpperCase();
-  card = content.substring(1);
-  Firebase.setString(fbdt, "/key_temp", card);
-  Serial.println("Your Card Is : ");
-  Serial.println(card);
-  // Halt PICC
-  mfrc522.PICC_HaltA();
-  // Stop encryption on PCD
-  mfrc522.PCD_StopCrypto1();
+
 }
 
 
-
-/*--------------------------------------------------*/
-/*---------------------- Tasks ---------------------*/
-/*--------------------------------------------------*/
-
-void sensor(void *pvParameters)  // This is a task.
-{
-  int button;
-  (void) pvParameters;
-  for (;;) // A Task shall never return or exit.
-  {
+void loop(){
+    Firebase.getInt(fbdt, "/function/switch");
+    int switch1 = fbdt.intData();
+    if (switch1 == 1){
+        digitalWrite(ledPin, LOW);
+    if ( ! mfrc522.PICC_IsNewCardPresent()) {
+      return;
+    }
+    else {
+      if ( ! mfrc522.PICC_ReadCardSerial()) {
+        return;
+      }
+      else {
+        String content = "";
+        for (byte i = 0; i < mfrc522.uid.size; i++)
+        {
+          content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+          content.concat(String(mfrc522.uid.uidByte[i], HEX));
+        }
+        content.toUpperCase();
+        card = content.substring(1);
+        Firebase.setString(fbdt, "/key_temp", card);
+        Serial.println("Your Card Is : ");
+        Serial.println(card);
+        digitalWrite(ledPin, HIGH);
+      }
+    }
+    }
     // read the state of the pushbutton value:
     touchValue = touchRead(touchPin);
     temper = (temprature_sens_read() - 32) / 1.8;
@@ -126,20 +107,20 @@ void sensor(void *pvParameters)  // This is a task.
     if (button) {
       // turn LED on
       digitalWrite(ledPinFire, HIGH);
+      Serial.println("button");
     }
     else {
       // turn LED off
       digitalWrite(ledPinFire, LOW);
+      Serial.println("no button");
     }
-    
-    if (touchValue < threshold) {
-      // turn LED on
-      digitalWrite(ledPin, HIGH);
-    }
-    else {
-      // turn LED off
-      digitalWrite(ledPin, LOW);
-    }
-    delay(100);
-  }
+    delay(10);
+
+
 }
+
+
+
+/*--------------------------------------------------*/
+/*---------------------- Tasks ---------------------*/
+/*--------------------------------------------------*/
