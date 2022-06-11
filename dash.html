@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>IoTLab Dashboard</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./assets/font/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -18,23 +18,38 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
         />
         <!-- MDB -->
-        <link rel="stylesheet" href="css/mdb.min.css" />
+        <link rel="stylesheet" href="./assets/css/mdb.min.css" />
         <!-- My css -->
-        <link rel="stylesheet" href="css/dash.css">
+        <link rel="stylesheet" href="./assets/css/dash.css">
       </head>
       <body>
         <!-- Start your project here-->
-        <i class="fas fa-temperature-high"></i>
-        <div class="badge bg-secondary text-wrap" id="temp" style="width: 2rem"></div>
-        <i class="fas fa-tint"></i>
-        <div class="badge bg-secondary text-wrap" id="humi" style="width: 2rem"></div>
+        <ul class="breadcrumb">
+          <li><a href="#" id="signout">Main Page</a></li>
+          <li id="sub-pag">Sub Main Page</li>
+        </ul>
+        <div class="function">
+          <div class="temperature">
+            <i class="fas fa-temperature-high"></i>
+            <div class="badge  text-wrap" id="temp" style="width: 2rem; background-color: #fff; color: #000;"></div>
+            <i class="fas fa-tint"></i>
+            <div class="badge  text-wrap" id="humi" style="width: 2rem; background-color: #fff; color: #000;"></div>
+          </div>
+          <div class="control-device">
+            <button type="button" class="btn btn-dark" id="esp32">ESP32</button>
+        <!-- <button type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-color="dark" id ="led2"></button> -->
+            <button type="button" id ="led2" style="display: none;"></button>
+            <div>
+              <img src="./assets/img/air-conditioner-run.png" class="fan_on" alt="">
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
         <p id="user"></p>
-        <button type="button" class="btn btn-secondary btn-rounded" id="signout">Logout</button>
+        <!-- <button type="button" class="btn btn-secondary btn-rounded" >Logout</button> -->
         <button type="button" class="btn btn-light btn-rounded" id="clear">CLEAR</button>
         <button type="button" class="btn btn-info btn-rounded" data-mdb-toggle="modal" data-mdb-target="#exampleModal" >Edit</button>
         <button type="button" class="btn btn-danger btn-rounded" data-mdb-toggle="modal" data-mdb-target="#checking" id="check">Check</button>
-        <button type="button" class="btn btn-dark" id="esp32">ESP32</button>
-        <button type="button" class="btn btn-outline-success btn-rounded" data-mdb-ripple-color="dark" id ="led2"></button>
         <table class="table table-hover" id="table" border="0px" width="100px">
           <tbody>
             <tr>
@@ -55,18 +70,18 @@
                   <input type="text" id="form1" class="form-control form-icon-trailing" />
                   <label class="form-label" for="form1">Enter Product ID</label>
                 </div>
-                <div class="badge bg-primary text-wrap" style="width: 6rem ,margin-top: 10%;">Test write data to firebase</div>
+                <div class="badge bg-primary text-wrap" style="width: 300px; margin-top: 20px;">Test write data to firebase</div>
                 <div class="form-outline" style="margin-top: 1%;">
                   <input type="text" id="name" class="form-control" />
-                  <label class="form-label" for="form12" id="name_label"></label>
+                  <label class="form-label" for="form12" id="name_label">Enter Product Name</label>
                 </div>
                 <div class="form-outline" style="margin-top: 1%;">
                   <input type="text" id="des" class="form-control" />
-                  <label class="form-label" for="form12" id="des_label"></label>
+                  <label class="form-label" for="form12" id="des_label">Enter Product Description</label>
                 </div>
                 <div class="form-outline" style="margin-top: 1%;">
                   <input type="text" id="pri" class="form-control" />
-                  <label class="form-label" for="form12" id="pri_label"></label>
+                  <label class="form-label" for="form12" id="pri_label">Enter Product Price</label>
                 </div>
               </div>
             </table>
@@ -112,10 +127,11 @@
       >
       Coolest things 
       </button>
+      
       <!-- End your project here-->
     </body>
     <!-- MDB -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="./assets/js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
     <!--Firebase SDK code below-->
@@ -123,5 +139,5 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
     <!--My js-->
-    <script src="js/dashboard.js"></script>
+    <script src="./assets/js/dashboard.js"></script>
   </html>
