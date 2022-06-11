@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIUI VietSub</title>
-    <link rel="icon" href="./img/mdb-favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icon.css">
+    <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
     
 </head>
 <body>
@@ -131,7 +130,36 @@
             <!--Begin Review-->
             <div id = "review" class="content-section">
                 <h2 class="section-heading">Review</h2>
-                <iframe  width="100%" height="400" src="https://www.youtube.com/embed/vU2Q_nSOYLQ" title="ROM K40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe  width="100%" height="600px" src="https://www.youtube.com/embed/vU2Q_nSOYLQ" title="ROM K40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="slideshow-container">
+
+                    <!-- Full-width slides/quotes -->
+                    <div class="mySlides">
+                      <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
+                      <p class="author">- John Keats</p>
+                    </div>
+                  
+                    <div class="mySlides">
+                      <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
+                      <p class="author">- Ernest Hemingway</p>
+                    </div>
+                  
+                    <div class="mySlides">
+                      <q>I have not failed. I've just found 10,000 ways that won't work.</q>
+                      <p class="author">- Thomas A. Edison</p>
+                    </div>
+                  
+                    <!-- Next/prev buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  </div>
+                  
+                  <!-- Dots/bullets/indicators -->
+                  <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                  </div>
             </div>
             <!--Begin About-->
             <div id = "about"class="content-section">
@@ -224,11 +252,11 @@
                     <i class="ti-user"></i>
                     User name
                 </label>
-                <input id = "ticket-quantity" type="text" class="modal-input" placeholder="User name">
+                <input id = "email" type="text" class="modal-input" placeholder="User name">
                 <label for="email" class="modal-label">
                  Password
              </label>
-             <input id="email" type="password" class="modal-input" placeholder="Password">
+             <input id="password" type="password" class="modal-input" placeholder="Password">
              <button id="login" class="modal-buy">
                  Login
                  <i class="ti-check"></i>
@@ -241,17 +269,19 @@
     </div>
     <!--End Login-->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
-    <script src="js/login.js"></script>
+    
+    <script src="./assets/js/login.js"></script>
     
     
     
 <script>
        const login = document.querySelector('.js-login')
        const modal = document.querySelector('.js-modal')
-       const modalContainer = document.querySelector('.js-modal-container')
+       const modalContainer1 = document.querySelector('.js-modal-container')
        const modalClose = document.querySelector('.js-modal-close')
         function showBuyTickets(){
             modal.classList.add('open')
@@ -262,9 +292,36 @@
        login.addEventListener('click',showBuyTickets)
        modalClose.addEventListener('click',removeBuyticket)
        modal.addEventListener('click',removeBuyticket)
-       modalContainer.addEventListener('click',function(event){
+       modalContainer1.addEventListener('click',function(event){
            event.stopPropagation()
        })
+
+       var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
 </script>
 </body>
 </html>
